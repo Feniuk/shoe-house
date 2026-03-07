@@ -1,0 +1,25 @@
+{
+  "name": "shoe-house",
+  "version": "1.0.0",
+  "description": "University Module Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Feniuk/shoe-house.git"
+  },
+  "keywords": [],
+  "author": "'Feniuk' <'feniuk.mykhailo@gmail.com'>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Feniuk/shoe-house/issues"
+  },
+  "homepage": "https://github.com/Feniuk/shoe-house#readme",
+  "dependencies": {
+    "vite": "^7.3.1"
+  }
+}
