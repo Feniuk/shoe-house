@@ -36,7 +36,7 @@ nav a:hover {
 
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 60px 20px;
   background: linear-gradient(to right, #111, #444);
   color: white;
 }
@@ -66,9 +66,145 @@ nav a:hover {
   background-color: #e63c3c;
 }
 
+/* ------------------ TRENDING SECTION ----------------- */
+
+.trending {
+  padding: 60px 40px;
+  background: #ffffff;
+}
+
+.trending-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.trending-product-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.trending-shoe {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.trending-shoe:hover {
+  transform: translateY(-5px);
+}
+
+.trending-shoe img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.trending-shoe h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.trending-shoe p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.trending-view-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.trending-view-btn:hover {
+  background: #444;
+}
+
 footer {
   text-align: center;
   padding: 20px;
   background: #222;
   color: white;
+}
+
+/* --------------- SHOE PAGE --------------- */
+
+.shoes-page {
+  padding: 60px 40px;
+  background: white;
+}
+
+.shoes-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.shoes-input {
+  display: block;
+  margin: 0 auto 40px auto;
+  padding: 12px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.shoes-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.shoe-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.shoe-item:hover {
+  transform: translateY(-5px);
+}
+
+.shoe-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.shoe-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.shoe-item p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.view-btn:hover {
+  background: #444;
 }
