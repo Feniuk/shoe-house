@@ -69,7 +69,7 @@ nav a:hover {
 /* ------------------ TRENDING SECTION ----------------- */
 
 .trending {
-  padding: 60px 40px;
+  padding: 40px 40px;
   background: #ffffff;
 }
 
@@ -138,18 +138,18 @@ footer {
 
 /* --------------- SHOE PAGE --------------- */
 
-.shoes-page {
+.sp-section {
   padding: 60px 40px;
   background: white;
 }
 
-.shoes-title {
+.sp-title {
   text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
 }
 
-.shoes-input {
+.sp-input {
   display: block;
   margin: 0 auto 40px auto;
   padding: 12px;
@@ -159,13 +159,13 @@ footer {
   border-radius: 5px;
 }
 
-.shoes-wrapper {
+.sp-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.shoe-item {
+.sp-item {
   background: #f9f9f9;
   border-radius: 8px;
   padding: 20px;
@@ -173,11 +173,11 @@ footer {
   transition: transform 0.2s ease;
 }
 
-.shoe-item:hover {
+.sp-item:hover {
   transform: translateY(-5px);
 }
 
-.shoe-item img {
+.sp-item-img {
   width: 100%;
   height: 220px;
   object-fit: cover;
@@ -185,12 +185,12 @@ footer {
   margin-bottom: 15px;
 }
 
-.shoe-item h3 {
+.sp-item-titel {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.shoe-item p {
+.sp-item-price {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 15px;
@@ -207,4 +207,58 @@ footer {
 
 .view-btn:hover {
   background: #444;
+}
+
+/* ------------ PRODUCT DETAILS PAGE ---------------- */
+
+.product-details {
+  padding: 60px 40px;
+  background: white;
+  margin-bottom: 40px;
+}
+
+.product-details-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.product-img img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-info-container h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buy-btn {
+  padding: 15px 35px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background-color: #e63c3c;
 }
