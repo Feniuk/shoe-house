@@ -23,6 +23,12 @@ body {
   font-size: 28px;
 }
 
+.home-redirect-link {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
 nav a {
   color: white;
   text-decoration: none;
