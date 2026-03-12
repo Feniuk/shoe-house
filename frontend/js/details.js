@@ -1,11 +1,3 @@
-const product_id = getProductIdFromURL(window.location.href);
-
-function getProductIdFromURL(url) {
-  let splitted_url = url.split("?");
-  let id = splitted_url[1].split("=")[1];
-  return id;
-}
-
 const product_list = [
   {
     id: 1,
@@ -105,6 +97,14 @@ const product_list = [
   },
 ];
 
+const product_id = getProductIdFromURL(window.location.href);
+
+function getProductIdFromURL(url) {
+  let splitted_url = url.split("?");
+  let id = splitted_url[1].split("=")[1];
+  return id;
+}
+
 const product = product_list.find(productParser);
 
 function productParser(shoe) {
@@ -116,5 +116,5 @@ if (product) {
   document.getElementById("product-price").textContent = product.price;
   document.getElementById("product-description").textContent =
     product.description;
-  document.getElementById("image alt").src = product.image;
+  document.getElementById("product-image").src = product.image;
 }

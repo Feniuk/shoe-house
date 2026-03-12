@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Shoe</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css" />
+    <script src="/frontend/js/add-item.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/index.html" class="home-redirect-link">
+        <h1>Shoe House</h1>
+      </a>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/frontend/shoes.html">Shoes</a>
+        <a href="/frontend/add-shoes.html">Add Shoes</a>
+        <a href="/frontend/orders.html">Orders</a>
+      </nav>
+    </header>
+
+    <section class="add-section">
+      <div class="add-wrapper">
+        <h2 class="add-title">Add New Shoe</h2>
+        <p class="add-text">Add your product to the store</p>
+
+        <form id="add-form" class="add-form">
+          <div class="input-containers">
+            <label>Title</label>
+            <input
+              type="text"
+              id="shoe-title"
+              placeholder="Shoe Brand"
+              required
+            />
+          </div>
+
+          <div class="input-containers">
+            <label class="form-label">Price</label>
+            <input type="text" id="shoe-price" placeholder="199.99€" required />
+          </div>
+
+          <div class="input-containers">
+            <label class="form-label">Description</label>
+            <textarea
+              id="shoe-description"
+              placeholder="Describe the shoes..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="input-containers">
+            <label class="form-label">Image URL</label>
+            <input
+              type="text"
+              id="shoe-image"
+              placeholder="image.url"
+              required
+            />
+          </div>
+
+          <button type="submit" class="add-button">Add Shoe</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Shoe House</p>
+    </footer>
+  </body>
+</html>
