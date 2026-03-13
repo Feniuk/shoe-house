@@ -118,3 +118,21 @@ if (product) {
     product.description;
   document.getElementById("product-image").src = product.image;
 }
+
+const buy_button = document.getElementById("buy-btn");
+buy_button.addEventListener("click", buyShoe);
+
+function buyShoe() {
+  const order = {
+    productId: product.id,
+    productTitle: product.title,
+    productPrise: product.price,
+    productImage: product.image,
+  };
+
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+  alert("Order placed successfully!");
+  window.location.href = "/frontend/orders.html";
+}

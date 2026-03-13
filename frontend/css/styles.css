@@ -364,3 +364,52 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(255, 45, 85, 0.4);
 }
+
+/* ------------------ ORDERS PAGE ---------------------- */
+
+.orders-section {
+  padding: 60px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.orders-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.order-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.order-title {
+  font-size: 18px;
+}
+
+.order-price {
+  font-weight: bold;
+}
+
+.delete-btn {
+  cursor: pointer;
+}
