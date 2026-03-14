@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/index.html" class="home-redirect-link">
+        <h1>Shoe House</h1>
+      </a>
+    </header>
+
+    <section style="display: flex; flex-direction: column; align-items: center">
+      <h2 style="margin-top: 50px">Complete your Payment</h2>
+
+      <div id="paypal-button-container" style="margin-top: 50px"></div>
+    </section>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+
+    <script>
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+      let total = orders.reduce((sum, order) => {
+        return sum + parseFloat(order.productPrise);
+      }, 0);
+
+      paypal
+        .Buttons({
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: total.toFixed(2),
+                  },
+                },
+              ],
+            });
+          },
+
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+              alert(
+                "Payment successful! Thank you!😊" +
+                  details.payer.name.given_name,
+              );
+
+              localStorage.removeItem("orders");
+
+              window.location.href = "/frontend/orders.html";
+            });
+          },
+        })
+        .render("#paypal-button-container");
+    </script>
+  </body>
+</html>

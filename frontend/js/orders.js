@@ -37,3 +37,17 @@ function deleteOrder(index) {
   localStorage.setItem("orders", JSON.stringify(orders));
   location.reload();
 }
+
+const payButton = document.getElementById("paypal");
+payButton.addEventListener("click", payPalPay);
+
+function payPalPay() {
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  if (orders.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  window.location.href = "/frontend/payment.html";
+}
