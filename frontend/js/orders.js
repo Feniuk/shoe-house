@@ -45,7 +45,7 @@ function payPalPay() {
   let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
   if (orders.length === 0) {
-    alert("Your cart is empty!");
+    alert("You have no orders!");
     return;
   }
 
