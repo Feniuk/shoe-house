@@ -10,10 +10,10 @@ function formSubmitHandler(event) {
   const image = document.getElementById("shoe-image");
 
   const newShoe = {
-    title: title,
-    price: price,
-    description: description,
-    img: image,
+    title: title.value,
+    price: price.value,
+    description: description.value,
+    img: image.value,
   };
 
   console.log(newShoe);
