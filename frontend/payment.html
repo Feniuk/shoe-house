@@ -22,41 +22,54 @@
 
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
 
-    <script>
-      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  <script>
+  let total = 0;
+  async function loadOrders() {
+    const res = await fetch("http://localhost:5000/orders");
+    const orders = await res.json();
 
-      let total = orders.reduce((sum, order) => {
-        return sum + parseFloat(order.productPrise);
-      }, 0);
+    total = orders.reduce((sum, order) => {
+      return sum + Number(order.productPrice);
+    }, 0);
 
-      paypal
-        .Buttons({
-          createOrder: function (data, actions) {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: total.toFixed(2),
-                  },
+  if (total === 0) {
+  alert("No orders to pay!");
+  return
+  }
+  }
+
+  loadOrders().then(() => {
+    paypal
+      .Buttons({
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: total.toFixed(2),
                 },
-              ],
+              },
+            ],
+          });
+        },
+
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(async function (details) {
+            alert(
+              "Payment successful! Thank you! 😊 " +
+                details.payer.name.given_name
+            );
+
+            await fetch("http://localhost:5000/orders", {
+              method: "DELETE",
             });
-          },
 
-          onApprove: function (data, actions) {
-            return actions.order.capture().then(function (details) {
-              alert(
-                "Payment successful! Thank you!😊" +
-                  details.payer.name.given_name,
-              );
-
-              localStorage.removeItem("orders");
-
-              window.location.href = "/frontend/orders.html";
-            });
-          },
-        })
-        .render("#paypal-button-container");
-    </script>
+            window.location.href = "/frontend/orders.html";
+          });
+        },
+      })
+      .render("#paypal-button-container");
+  });
+</script
   </body>
 </html>

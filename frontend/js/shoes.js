@@ -12,7 +12,7 @@ async function loadShoes() {
         <div class="sp-item">
           <img src="${shoe.image}" class="sp-item-img" />
           <h3 class="sp-item-titel">${shoe.title}</h3>
-          <p class="sp-item-price">${shoe.price}€</p>
+          <p class="sp-item-price">${parseFloat(shoe.price)}€</p>
           <a href="/frontend/shoe.html?id=${shoe._id}" class="view-btn">
             View Product
           </a>

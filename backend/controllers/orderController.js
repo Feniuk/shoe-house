@@ -19,3 +19,10 @@ export const deleteOrder = async (req, res) => {
 
   res.json({ message: "Order deleted" });
 };
+
+// ========== paypal ============
+
+export const deleteALLOrders = async (req, res) => {
+  await shoeOrder.deleteMany({});
+  res.json({ message: "All orders cleared" });
+};

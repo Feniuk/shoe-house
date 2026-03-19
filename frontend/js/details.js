@@ -137,6 +137,43 @@
 //   window.location.href = "/frontend/orders.html";
 // }
 
+const product_id = getProductIdFromURL(window.location.href);
+const buy_button = document.getElementById("buy-btn");
+buy_button.addEventListener("click", buyShoe);
+
+async function buyShoe() {
+  try {
+    const order = {
+      productId: product_id,
+      productTitle: document.getElementById("product-title").textContent,
+      productPrice: parseFloat(
+        document.getElementById("product-price").textContent,
+      ),
+      productImage: document.getElementById("product-image").src,
+    };
+
+    const res = await fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to create order");
+    }
+
+    const data = await res.json();
+    console.log(data);
+    alert("Added to shopping bag!");
+    window.location.href = "/frontend/orders.html";
+  } catch (error) {
+    console.error(error);
+    alert("Error adding to bag");
+  }
+}
+
 const shoeId = getProductIdFromURL(window.location.href);
 
 function getProductIdFromURL(url) {
