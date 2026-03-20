@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment</title>
-    <link rel="stylesheet" href="/frontend/css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
     <header class="header">
-      <a href="/index.html" class="home-redirect-link">
+      <a href="index.html" class="home-redirect-link">
         <h1>Shoe House</h1>
       </a>
     </header>
@@ -25,7 +25,7 @@
   <script>
   let total = 0;
   async function loadOrders() {
-    const res = await fetch("http://localhost:5000/orders");
+    const res = await fetch("https://online-shoe-house.onrender.com/orders");
     const orders = await res.json();
 
     total = orders.reduce((sum, order) => {
@@ -64,7 +64,7 @@
               method: "DELETE",
             });
 
-            window.location.href = "/frontend/orders.html";
+            window.location.href = "orders.html";
           });
         },
       })

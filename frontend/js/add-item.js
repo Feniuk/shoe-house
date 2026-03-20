@@ -30,7 +30,7 @@ function formSubmitHandler(event) {
     .then((data) => {
       console.log(data);
       alert("Shoe added successfully!");
-      window.location.href = "/frontend/shoes.html";
+      window.location.href = "shoes.html";
     })
     .catch((error) => {
       console.error(error);

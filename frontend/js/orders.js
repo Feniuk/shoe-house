@@ -56,7 +56,7 @@ const container = document.getElementById("orders-container");
 container.addEventListener("click", detectDelete);
 
 async function orderParser() {
-  const res = await fetch("http://localhost:5000/orders");
+  const res = await fetch("https://online-shoe-house.onrender.com/orders");
   const orders = await res.json();
 
   if (orders.length === 0) {
@@ -100,7 +100,7 @@ const payButton = document.getElementById("paypal");
 payButton.addEventListener("click", payPalPay);
 
 function payPalPay() {
-  window.location.href = "/frontend/payment.html";
+  window.location.href = "payment.html";
 }
 
 orderParser();
