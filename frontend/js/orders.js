@@ -56,7 +56,7 @@ const container = document.getElementById("orders-container");
 container.addEventListener("click", detectDelete);
 
 async function orderParser() {
-  const res = await fetch("https://online-shoe-house.onrender.com/orders");
+  const res = await fetch("http://localhost:5000/orders");
   const orders = await res.json();
 
   if (orders.length === 0) {
@@ -89,7 +89,7 @@ async function detectDelete(event) {
 
   const id = event.target.dataset.id;
 
-  await fetch(`https://online-shoe-house.onrender.com/orders/${id}`, {
+  await fetch(`https://online-shoe-house.onrender.com/${id}`, {
     method: "DELETE",
   });
 
@@ -100,7 +100,7 @@ const payButton = document.getElementById("paypal");
 payButton.addEventListener("click", payPalPay);
 
 function payPalPay() {
-  window.location.href = "payment.html";
+  window.location.href = "/frontend/payment.html";
 }
 
 orderParser();

@@ -167,7 +167,7 @@ async function buyShoe() {
     const data = await res.json();
     console.log(data);
     alert("Added to shopping bag!");
-    window.location.href = "orders.html";
+    window.location.href = "/frontend/orders.html";
   } catch (error) {
     console.error(error);
     alert("Error adding to bag");

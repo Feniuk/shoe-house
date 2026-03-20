@@ -80,7 +80,7 @@ const product_list = [
   {
     image: "/frontend/images/nocta2.jpg",
     title: "Nike X Nocta",
-    price: "170.00",
+    price: parseFloat("170.00€"),
     description:
       "When Drake and Nike collaborate, nothing ordinary comes out. NOCTA stands for clean design, performance vibes, and limited-edition pieces. It's doubly worth being quick.",
   },
