@@ -8,18 +8,19 @@ import orderRoutes from "./routes/orderRoutes.js";
 dotenv.config();
 console.log(process.env.PORT);
 
-connectToDB();
-
 const app = express();
 
-app.use(express.json());
-app.use(cors({ origin: "*" }));
+connectToDB();
 
-app.use("/shoes", shoeRoutes);
+app.use(express.json());
+
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
+app.use("/shoes", shoeRoutes);
 app.use("/orders", orderRoutes);
 
 const PORT = process.env.PORT || 5000;

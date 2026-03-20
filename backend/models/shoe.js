@@ -12,7 +12,7 @@ const shoeSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      equired: true,
+      required: true,
     },
     image: {
       type: String,
@@ -24,6 +24,6 @@ const shoeSchema = mongoose.Schema(
   },
 );
 
-const Shoe = mongoose.model("Shoe Schema", shoeSchema);
+const Shoe = mongoose.model("Shoe", shoeSchema);
 
 export default Shoe;
