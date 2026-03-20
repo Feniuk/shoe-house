@@ -89,7 +89,7 @@ async function detectDelete(event) {
 
   const id = event.target.dataset.id;
 
-  await fetch(`http://localhost:5000/orders/${id}`, {
+  await fetch(`https://online-shoe-house.onrender.com/${id}`, {
     method: "DELETE",
   });
 

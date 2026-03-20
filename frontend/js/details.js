@@ -152,7 +152,7 @@ async function buyShoe() {
       productImage: document.getElementById("product-image").src,
     };
 
-    const res = await fetch("http://localhost:5000/orders", {
+    const res = await fetch("https://online-shoe-house.onrender.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -183,7 +183,9 @@ function getProductIdFromURL(url) {
 
 async function loadProduct() {
   try {
-    const res = await fetch(`http://localhost:5000/shoes/${shoeId}`);
+    const res = await fetch(
+      `https://online-shoe-house.onrender.com/shoes/${shoeId}`,
+    );
     const shoe = await res.json();
 
     document.getElementById("product-title").textContent = shoe.title;

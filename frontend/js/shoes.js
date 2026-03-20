@@ -2,7 +2,7 @@ const wrapper = document.getElementById("sp-wrapper");
 
 async function loadShoes() {
   try {
-    const res = await fetch("http://localhost:5000/shoes");
+    const res = await fetch("https://online-shoe-house.onrender.com/shoes");
     const shoes = await res.json();
 
     wrapper.innerHTML = "";

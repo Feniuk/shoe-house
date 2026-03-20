@@ -14,7 +14,7 @@ function formSubmitHandler(event) {
     image,
   };
 
-  fetch("http://localhost:5000/shoes", {
+  fetch("https://online-shoe-house.onrender.com/shoes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
