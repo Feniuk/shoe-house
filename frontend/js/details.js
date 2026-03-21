@@ -109,6 +109,7 @@
 
 // function productParser(shoe) {
 //   return shoe.id === Number(product_id);
+//   there is no ai at all;
 // }
 
 // if (product) {
@@ -137,14 +138,22 @@
 //   window.location.href = "/frontend/orders.html";
 // }
 
-const product_id = getProductIdFromURL(window.location.href);
-const buy_button = document.getElementById("buy-btn");
-buy_button.addEventListener("click", buyShoe);
+const URL = "https://online-shoe-house.onrender.com";
+const productId = getProductIdFromURL();
+const buyButton = document.getElementById("buy-btn");
+const trendingWrapper = document.getElementById("trending-product-wrapper");
+
+buyButton.addEventListener("click", buyShoe);
+
+function getProductIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
 
 async function buyShoe() {
   try {
     const order = {
-      productId: product_id,
+      productId,
       productTitle: document.getElementById("product-title").textContent,
       productPrice: parseFloat(
         document.getElementById("product-price").textContent,
@@ -152,7 +161,7 @@ async function buyShoe() {
       productImage: document.getElementById("product-image").src,
     };
 
-    const res = await fetch("https://online-shoe-house.onrender.com/orders", {
+    const res = await fetch(`${URL}/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -164,8 +173,7 @@ async function buyShoe() {
       throw new Error("Failed to create order");
     }
 
-    const data = await res.json();
-    console.log(data);
+    await res.json();
     alert("Added to shopping bag!");
     window.location.href = "/frontend/orders.html";
   } catch (error) {
@@ -174,26 +182,78 @@ async function buyShoe() {
   }
 }
 
-function getProductIdFromURL(url) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
 async function loadProduct() {
+  if (!productId) {
+    renderMissingProduct("Product ID is missing in the URL.");
+    return;
+  }
+
   try {
-    const res = await fetch(
-      `https://online-shoe-house.onrender.com/shoes/${product_id}`,
-    );
+    const res = await fetch(`${URL}/shoes/${productId}`);
+
+    if (!res.ok) {
+      throw new Error(`Faild to load product (${res.status})`);
+    }
+
     const shoe = await res.json();
 
     document.getElementById("product-title").textContent = shoe.title;
-    document.getElementById("product-price").textContent = shoe.price + "€";
+    document.getElementById("product-price").textContent =
+      `${parseFloat(shoe.price)}€`;
     document.getElementById("product-description").textContent =
       shoe.description;
     document.getElementById("product-image").src = shoe.image;
+    document.getElementById("product-image").alt = shoe.title;
   } catch (error) {
     console.error("Error loading product:", error);
+    renderMissingProduct("This product was not found.");
+  }
+}
+
+function renderMissingProduct(message) {
+  document.getElementById("product-title").textContent = message;
+  document.getElementById("product-price").textContent = "";
+  document.getElementById("product-description").textContent =
+    "Please return to the shoes page and choose an available product.";
+  document.getElementById("product-image").removeAttribute("src");
+  buyButton.disabled = true;
+}
+
+async function loadTrendingShoes() {
+  if (!trendingWrapper) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`${URL}/shoes`);
+    if (!res.ok) {
+      throw new Error(`Failed to load trendng shoes (${res.status})`);
+    }
+    const shoes = await res.json();
+    const trendingShoes = shoes
+      .filter((shoe) => shoe._id !== productId)
+      .slice(0, 4);
+
+    trendingWrapper.innerHTML = trendingShoes
+      .map(
+        (shoe) => `
+          <div class="trending-shoe">
+            <img src="${shoe.image}" alt="${shoe.title}" />
+            <h3>${shoe.title}</h3>
+            <p>${parseFloat(shoe.price)}€</p>
+            <a href="/frontend/shoe.html?id=${shoe._id}" class="trending-view-btn">
+              View Product
+            </a>
+          </div>
+        `,
+      )
+      .join("");
+  } catch (error) {
+    console.error("Eror loading trending shoes:", error);
+    trendingWrapper.innerHTML =
+      "<p>Trending shoes are unavailable right now.</p>";
   }
 }
 
 loadProduct();
+loadTrendingShoes();
