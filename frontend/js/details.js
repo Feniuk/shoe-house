@@ -174,8 +174,6 @@ async function buyShoe() {
   }
 }
 
-const shoeId = getProductIdFromURL(window.location.href);
-
 function getProductIdFromURL(url) {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
@@ -184,7 +182,7 @@ function getProductIdFromURL(url) {
 async function loadProduct() {
   try {
     const res = await fetch(
-      `https://online-shoe-house.onrender.com/shoes/${shoeId}`,
+      `https://online-shoe-house.onrender.com/shoes/${product_id}`,
     );
     const shoe = await res.json();
 

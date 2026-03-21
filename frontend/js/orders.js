@@ -56,7 +56,7 @@ const container = document.getElementById("orders-container");
 container.addEventListener("click", detectDelete);
 
 async function orderParser() {
-  const res = await fetch("http://localhost:5000/orders");
+  const res = await fetch("https://online-shoe-house.onrender.com/orders");
   const orders = await res.json();
 
   if (orders.length === 0) {
@@ -89,7 +89,7 @@ async function detectDelete(event) {
 
   const id = event.target.dataset.id;
 
-  await fetch(`https://online-shoe-house.onrender.com/${id}`, {
+  await fetch(`https://online-shoe-house.onrender.com/orders/${id}`, {
     method: "DELETE",
   });
 
