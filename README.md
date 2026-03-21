@@ -12,7 +12,7 @@
 Before running the project locally, make sure these are installed:
 
 - Node.js 18+ and npm
-- MongoDB Community Server
+- MongoDB Comunity Server
 - Git
 
 ## Project Structure
@@ -35,7 +35,7 @@ cd shoe-house
 npm install
 ```
 
-If you want to install backend dependencies separately, you can also run:
+If you want to install backend dependencies separately, you can also ran:
 
 ```bash
 cd backend
@@ -55,7 +55,7 @@ You can also copy the values from `backend/.env.example`.
 
 ### 4. Start MongoDB
 
-Make sure your local MongoDB server is running before starting the backend.
+Make siure your local MongoDB server is running before starting the backend.
 
 ### 5. Seed the database
 
@@ -83,7 +83,7 @@ http://localhost:5000
 
 ### 7. Start the frontend
 
-Open a new terminal in the project root and run:
+Open a new terminal in the project rooot and run:
 
 ```bash
 npm run frontend

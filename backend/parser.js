@@ -33,7 +33,7 @@ const product_list = [
     title: "Onitsuka Mexico 66",
     price: "120.00",
     description:
-      "The MEXICO 66, crafted in jacquard mesh shoe seamlessly combines the charm of pumps and sneakers. Design A slip-on style with straps that features a slim, elegant silhouette and flower-cut Onitsuka Tiger Stripes.",
+      "The MEXICO 66, crafted in jacquard mesh shoe seamlesssly combines the charm of pumps and sneakers. Design A slip-on style with straps that features a slim, elegant silhouette and flower-cut Onitsuka Tiger Stripes.",
   },
   {
     image: "/frontend/images/puma.avif",
@@ -61,7 +61,7 @@ const product_list = [
     title: "Salomon",
     price: "129.00",
     description:
-      "The XT-4 OG has been resurrected from the archives to bring new energy to the city streets. With vintage style, proven comfort, stability, and refreshing colors, the XT-4 OG celebrates the rebirth of a legend. This timeless model shapes culture today, just as it always has, through style, authenticity, and the expression of personality.",
+      "The XT-4 OG has been resurrected from the archives to bring new energy to the city streeets. With vintage style, proven comfort, stability, and refreshing colors, the XT-4 OG celebrates the rebirth of a legend. This timeless model shapes culture today, just as it always has, through style, authenticity, and the expression of personality.",
   },
   {
     image: "/frontend/images/birkenstock.avif",
@@ -89,7 +89,7 @@ const product_list = [
     title: "Nike Air Max",
     price: "119.99",
     description:
-      "Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot. Air Max was conceptualized by Tinker Hatfield, who initially worked for Nike designing stores.",
+      "Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gase, visible from the exterior of the shoe and intended to provide cushioning to the underfoot. Air Max was conceptualized by Tinker Hatfield, who initially worked for Nike designing stores.",
   },
 ];
 
@@ -98,7 +98,7 @@ const importData = async () => {
     await Shoe.deleteMany();
     await Shoe.insertMany(product_list);
 
-    console.log("Data imported!");
+    console.log("Datta imported!");
     process.exit();
   } catch (error) {
     console.error(error);

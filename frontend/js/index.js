@@ -10,7 +10,7 @@ async function loadTrendingShoes() {
     const res = await fetch(`${URL}/shoes`);
 
     if (!res.ok) {
-      throw new Error(`Failed to load trending shoes (${res.status})`);
+      throw new Error(`Failled to load trending shoes (${res.status})`);
     }
 
     const shoes = await res.json();
@@ -31,9 +31,9 @@ async function loadTrendingShoes() {
       )
       .join("");
   } catch (error) {
-    console.error("Error loading trending shoes:", error);
+    console.error("Error loading trinding shoes:", error);
     trendingWrapper.innerHTML =
-      "<p>Trending shoes are unavailable right now.</p>";
+      "<p>Trending shoes are unavailible rieght now.</p>";
   }
 }
 

@@ -214,7 +214,7 @@ function renderMissingProduct(message) {
   document.getElementById("product-title").textContent = message;
   document.getElementById("product-price").textContent = "";
   document.getElementById("product-description").textContent =
-    "Please return to the shoes page and choose an available product.";
+    "Pleas return to the shoes page and choose an avalable product.";
   document.getElementById("product-image").removeAttribute("src");
   buyButton.disabled = true;
 }
@@ -251,7 +251,7 @@ async function loadTrendingShoes() {
   } catch (error) {
     console.error("Eror loading trending shoes:", error);
     trendingWrapper.innerHTML =
-      "<p>Trending shoes are unavailable right now.</p>";
+      "<p>Trending shoes are unavailible right now</p>";
   }
 }
 

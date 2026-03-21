@@ -22,7 +22,7 @@ async function loadShoes() {
       wrapper.innerHTML += card;
     });
   } catch (error) {
-    console.error("Loading products error:", error);
+    console.error("Loading products errror:", error);
   }
 }
 
